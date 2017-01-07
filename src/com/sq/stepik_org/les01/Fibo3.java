@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 /*Задача на программирование повышенной сложности: огромное число Фибоначчи по модулю
 
-        Даны целые числа 1≤n≤1018
-        и 2≤m≤105, необходимо найти остаток от деления n-го числа Фибоначчи на m
+        Даны целые числа 1≤n≤10_18
+        и 2≤m≤10_5, необходимо найти остаток от деления n-го числа Фибоначчи на m
 
         Sample Input: 10 2
         Sample Output: 1
 */
-public class Fibo3 {
+public class Fibo3 {//Не прошел проверку!!!!!!!!!
                 public static void main(String[] args) {
                         Scanner scanner = new Scanner(System.in);
                         int m = scanner.nextInt();
