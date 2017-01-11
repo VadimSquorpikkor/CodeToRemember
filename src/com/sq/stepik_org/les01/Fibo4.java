@@ -14,24 +14,25 @@ public class Fibo4 {//Не прошел проверку!!!!!!!!!
     */
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
+            long n = scanner.nextLong();
             int m = scanner.nextInt();
-            int n = scanner.nextInt();
-            int fibo = 0;
-            int first = 1;
-            int second = 1;
-            int result;
+            long fibo = 0;
+            long first = 1;
+            long second = 1;
+            long result;
 
             if ((n == 1)||(n == 2)){
                 fibo = 1;
             } else {
-                for (int i = 2; i < n; i++) {
-                    fibo = (second + first)%1000;
+                for (long i = 2; i < n; i++) {
+                    fibo = (second + first)%m;
+                    //fibo = second + first;
                     first = second;
                     second = fibo;
                 }
                 //System.out.println(fibo);//Отображение самого числа, закоменчено, потому как не нужно по условию задачи
             }
-            result = fibo%m;
+            result = fibo;
             System.out.println(result);
         }
 }
