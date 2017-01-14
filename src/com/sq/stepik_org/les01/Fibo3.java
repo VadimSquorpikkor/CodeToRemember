@@ -26,6 +26,7 @@ public class Fibo3 {//Не прошел проверку!!!!!!!!!
                         BigInteger second = new BigInteger("1");
 
                         BigInteger one = new BigInteger("1");
+                        BigInteger two = new BigInteger("1");
 
                         BigInteger result = new BigInteger("0");
 
@@ -37,10 +38,11 @@ public class Fibo3 {//Не прошел проверку!!!!!!!!!
                                 fibo = second;
                         } else {
                                 for (long i = 2; i < n; i++) {
-                                        if (first.mod(BigInteger.valueOf(10)).equals(one)) {
+                                        /*if (first.mod(BigInteger.valueOf(10)).equals(one)&&second.mod(BigInteger.valueOf(10)).equals(one)) {
                                                 System.out.println("Период на номере" + i);
-                                        }
+                                        }*/
                                         fibo = (first.add(second));
+                                        //System.out.println("№ - " + i + ", -- " + fibo);
                                         first = second;
                                         second = fibo;
                                 }
@@ -48,6 +50,6 @@ public class Fibo3 {//Не прошел проверку!!!!!!!!!
                         }
                         result = fibo.mod(BigInteger.valueOf(m));
                         System.out.println(result);
-                        //System.out.println(fibo);
+                        System.out.println(fibo.divide(BigInteger.valueOf(63715)));
                 }
 }

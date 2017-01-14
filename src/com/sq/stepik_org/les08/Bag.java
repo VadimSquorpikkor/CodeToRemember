@@ -24,7 +24,7 @@ public class Bag {
         int goldQuantity = scanner.nextInt();
 
         int[] goldWeightArray = new int[goldQuantity];
-        for (int i = 0; i < goldWeightArray.length; i++) {
+        for (int i = 0; i < goldQuantity; i++) {
             goldWeightArray[i] = scanner.nextInt();
         }
 
