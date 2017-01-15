@@ -1,0 +1,83 @@
+package com.sq.stepik_org.les06; // Created by SquorpikkoR on 15.01.2017.
+
+/////Алгоритм рабочий , но нужно доделать, в нем слишком много массивов. Доработка по ссылке:
+/////https://stepik.org/lesson/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0-%D0%BD%D0%B0-Java-%D0%A7%D0%B8%D1%81%D0%BB%D0%BE-%D0%B8%D0%BD%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B9-17691/step/6?course=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B-%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F-%D0%B8-%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B&unit=4501
+
+
+/*      число инверсий
+
+        Первая строка содержит число 1≤n≤10_5, вторая — массив A[1…n], содержащий натуральные числа,
+        не превосходящие 10_9. Необходимо посчитать число пар индексов 1≤i<j≤n, для которых A[i]>A[j].
+        (Такая пара элементов называется инверсией массива. Количество инверсий в массиве является
+        в некотором смысле его мерой неупорядоченности: например, в упорядоченном по неубыванию массиве
+        инверсий нет вообще, а в массиве, упорядоченном по убыванию, инверсию образуют каждые два элемента.)
+
+        Sample Input:
+        5
+        2 3 9 2 9
+
+        Sample Output:
+        2*/
+
+import java.util.Scanner;
+
+public class Inversion {
+
+    private long count = 0;
+
+    private int[] merge(int[] a, int[] b) {
+        int i = 0;
+        int j = 0;
+        int[] res = new int[a.length + b.length];
+        for (int k = 0; k < res.length; k++) {
+            if (j>=b.length||(i<a.length&&a[i] <= b[j])) {
+                res[k] = a[i];
+                i++;
+            } else {
+                count += a.length - i;
+                res[k] = b[j];
+                j++;
+            }
+        }
+
+        return res;
+    }
+
+    private int[] mergeSort(int[] a) {
+        if (a.length == 1) {
+            return a;
+        }
+        int n = a.length;
+        int m = n/2;
+        int[] left = new int[m];
+        int[] right = new int[n - m];
+        System.arraycopy(a, 0, left, 0, m);
+        System.arraycopy(a, m, right, 0, n - m);
+
+        left = mergeSort(left);
+        right = mergeSort(right);
+
+        return merge(left, right);
+    }
+
+    private  void run() {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] a=new int[n];
+        for (int i = 1; i <= n; i++) {
+            a[i-1] = scanner.nextInt();
+        }
+        int[] sortedA = mergeSort(a);
+        for (int aSortedA : sortedA) {
+            System.out.print(aSortedA + " ");
+        }
+    }
+
+    //private int[] mergeSort(int[] a)
+
+    public static void main(String[] args) {
+        //System.out.println(Arrays.toString(new Inversion().merge(new int[]{1, 3, 5, 7}, new int[]{2, 4, 6, 8, 10})));//Проверка merge()
+        new Inversion().run();
+        System.out.println(new Inversion().count);
+    }
+}
