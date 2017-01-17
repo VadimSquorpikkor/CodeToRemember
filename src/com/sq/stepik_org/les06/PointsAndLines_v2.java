@@ -61,12 +61,16 @@ public class PointsAndLines_v2 {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+        long start = System.currentTimeMillis();
         PointsAndLines_v2 m = new PointsAndLines_v2();
         m.initializeFromInput();
       int[] result = m.pointSummator(m.pointArray, m.arrayToPutSegmentsIn(m.segments));
         for (int i = 0; i < m.pointArray.length; i++) {
             System.out.print(result[i] + " ");
         }
+        System.out.println();
+        long finish = System.currentTimeMillis();
+        System.out.println(finish - start + " ms");
     }
 
     private Map<Integer, Integer> arrayToPutSegmentsIn(Segment[] segmArray) {
