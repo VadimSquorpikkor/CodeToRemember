@@ -1,4 +1,7 @@
-package com.sq._laboratory; // Created by SquorpikkoR on 05.01.2017.
+package com.sq._java_basic_course.merge_array; // Created by SquorpikkoR on 05.01.2017.
+
+import java.util.Arrays;
+
 /*
 Реализуйте метод, сливающий два отсортированных по неубыванию массива чисел в
 один отсортированный в том же порядке массив. Массивы могут быть любой длины, в том числе нулевой.
@@ -13,15 +16,9 @@ package com.sq._laboratory; // Created by SquorpikkoR on 05.01.2017.
 то на выходе должен получиться массив {0, 1, 2, 2, 3}
 */
 
-import java.util.Arrays;
-import static java.lang.System.*;
-
 public class Main {
 
     public static void main(String[] args) throws Exception {
-
-        int N = 100;
-        //System.out.println(factorial(N));
         mergeArrays(new int[]{1, 2, 3}, new int[]{1, 4, 7});
         System.out.println(Arrays.toString(mergeArrays(new int[]{1, 2, 3, 8}, new int[]{1, 4, 7})));
     }
@@ -46,3 +43,4 @@ public class Main {
 
 
 }
+

@@ -1,4 +1,4 @@
-package com.sq.DoublePlusDouble; // Created by SquorpikkoR on 25.01.2017.
+package com.sq._java_basic_course.DoublePlusDouble; // Created by SquorpikkoR on 25.01.2017.
 
 public class Main {
 
