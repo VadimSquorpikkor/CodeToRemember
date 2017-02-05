@@ -1,4 +1,4 @@
-package com.sq._laboratory; // Created by SquorpikkoR on 05.01.2017.
+package com.sq._java_basic_course.flipBit; // Created by SquorpikkoR on 05.02.2017.
 
 public class Main {
 
@@ -7,7 +7,7 @@ public class Main {
     }
 
     public static int flipBit(int value, int bitIndex) {////Такое решение прошло
-    return value^(1<<(bitIndex-1));
+        return value^(1<<(bitIndex-1));
 
     }
 
