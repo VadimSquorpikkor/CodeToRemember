@@ -89,7 +89,7 @@ public class Main {
         System.out.println(new Main().printTextPerRole(roles, textLines));
     }
 
-    private String printTextPerRole(String[] roles, String[] textLines) {
+    /*private String printTextPerRole(String[] roles, String[] textLines) {//Не проходии по времени
         HashMap<String, String> roleCollector = new HashMap<>();
         for (int i = 0; i < roles.length; i++) {
             roleCollector.put(roles[i], "");
@@ -98,6 +98,8 @@ public class Main {
             int k = 0;
             String tempName = "";
             String tempText = "";
+            StringBuilder tN = new StringBuilder();
+            StringBuilder tT = new StringBuilder();
             while (textLines[i].charAt(k) != ':') {
                 tempName += textLines[i].charAt(k);
                 k++;
@@ -111,6 +113,68 @@ public class Main {
             res += roles[j]+":" + "\n" + roleCollector.get(roles[j]) + "\n";
         }
         return res;
+    }*/
+
+    private String printTextPerRole(String[] roles, String[] textLines) {//Стринги заменены нв стрингбилдер. Не проходии по времени
+        HashMap<String, String> roleCollector = new HashMap<>();
+        for (String role : roles) {
+            roleCollector.put(role, "");
+        }
+        for (int i = 0; i < textLines.length; i++) {
+            int k = 0;
+            StringBuilder tN = new StringBuilder();
+            StringBuilder tT = new StringBuilder();
+            while (textLines[i].charAt(k) != ':') {
+                tN = tN.append(textLines[i].charAt(k));
+                k++;
+            }
+            k+=2;//Пропускаю ':' и ' ' после имени
+            tT = tT.append(i + 1).append(") ").append(textLines[i].substring(k)).append("\n");//Копировать оставшуюся часть строки
+            roleCollector.put(tN.toString(), roleCollector.get(tN.toString()) + tT);
+        }
+        StringBuilder res = new StringBuilder();
+        for (String role : roles) {
+            res = res.append(role).append(":").append("\n").append(roleCollector.get(role)).append("\n");
+        }
+        return res.toString();
     }
+
+    /*private String printTextPerRole(String[] roles, String[] textLines) {
+        StringBuilder answer = new StringBuilder();
+        for (String role : roles) {
+            answer.append(role + ":\n");
+            for (int i = 0; i < textLines.length; i++) {
+                if (textLines[i].startsWith(role + ":")) {
+                    answer.append((i+1) + ")" + textLines[i].substring(role.length() + 1) + "\n");
+                }
+            }
+            answer.append("\n");
+        }
+        return answer.toString();
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
